@@ -1,17 +1,17 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import AreasWeServe from './components/AreasWeServe';
-import WhyChooseUs from './components/WhyChooseUs';
-import Gallery from './components/Gallery';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import FloatingWhatsApp from './components/common/FloatingWhatsApp';
-import BackToTop from './components/common/BackToTop';
-import MobileActionBar from './components/common/MobileActionBar';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import About from '../components/About';
+import Services from '../components/Services';
+import AreasWeServe from '../components/AreasWeServe';
+import WhyChooseUs from '../components/WhyChooseUs';
+import Gallery from '../components/Gallery';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
+import FloatingWhatsApp from '../components/common/FloatingWhatsApp';
+import BackToTop from '../components/common/BackToTop';
+import MobileActionBar from '../components/common/MobileActionBar';
 
-function App() {
+function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[#F4FAF8] text-[#17323A] selection:bg-[#0F4C5C] selection:text-white relative">
       {/* Top Sticky Navigation */}
@@ -52,4 +52,5 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
+
