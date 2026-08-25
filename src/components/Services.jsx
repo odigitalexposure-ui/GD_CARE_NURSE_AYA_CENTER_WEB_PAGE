@@ -1,4 +1,3 @@
-import React from 'react';
 import SectionHeading from './common/SectionHeading';
 import ServiceCard from './ServiceCard';
 import { servicesData } from '../data/services';

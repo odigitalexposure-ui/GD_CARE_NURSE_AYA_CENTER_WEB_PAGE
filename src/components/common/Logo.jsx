@@ -1,4 +1,3 @@
-import React from 'react';
 import transparentLogo from '../../assets/transparent_logo.png';
 
 export const Logo = ({ variant = 'dark', className = '', showText = true }) => {

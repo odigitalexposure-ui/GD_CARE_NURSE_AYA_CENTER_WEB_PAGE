@@ -1,4 +1,3 @@
-import React from 'react';
 import { MapPin, Navigation, ExternalLink, Compass } from 'lucide-react';
 import { businessInfo } from '../data/businessInfo';
 

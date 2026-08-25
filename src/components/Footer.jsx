@@ -1,5 +1,4 @@
-import React from 'react';
-import { MapPin, Phone, MessageSquare, Heart, ArrowUp } from 'lucide-react';
+import { MapPin, Phone, MessageSquare } from 'lucide-react';
 import Logo from './common/Logo';
 import { businessInfo } from '../data/businessInfo';
 

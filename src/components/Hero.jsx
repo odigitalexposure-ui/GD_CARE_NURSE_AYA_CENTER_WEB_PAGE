@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Clock, ShieldCheck, MapPin, ArrowRight, MessageSquare, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { heroImages } from '../assets/images';

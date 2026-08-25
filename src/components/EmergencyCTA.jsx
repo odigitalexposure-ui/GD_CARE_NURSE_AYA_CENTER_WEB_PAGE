@@ -1,4 +1,3 @@
-import React from 'react';
 import { Phone, MessageSquare, HeartPulse } from 'lucide-react';
 import { businessInfo } from '../data/businessInfo';
 

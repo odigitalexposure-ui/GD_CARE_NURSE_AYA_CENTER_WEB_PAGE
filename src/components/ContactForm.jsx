@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { MessageSquare, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { useState } from 'react';
+import { MessageSquare, Send, AlertCircle } from 'lucide-react';
 import { businessInfo } from '../data/businessInfo';
 import { servicesData } from '../data/services';
 import { locationsData } from '../data/locations';

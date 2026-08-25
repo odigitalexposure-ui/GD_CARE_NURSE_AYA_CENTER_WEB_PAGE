@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Maximize2, ChevronDown, ChevronUp, Image as ImageIcon, Sparkles } from 'lucide-react';
+import { Maximize2, ChevronDown, ChevronUp, Image as ImageIcon } from 'lucide-react';
 import SectionHeading from './common/SectionHeading';
 import GalleryModal from './GalleryModal';
 import { galleryData, galleryCategories } from '../data/gallery';

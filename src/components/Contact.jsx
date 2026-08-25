@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Phone, Clock, Maximize2, X, MessageSquare, ShieldCheck } from 'lucide-react';
+import { MapPin, Phone, Clock, Maximize2, X, ShieldCheck } from 'lucide-react';
 import SectionHeading from './common/SectionHeading';
 import ContactForm from './ContactForm';
 import MapSection from './MapSection';
