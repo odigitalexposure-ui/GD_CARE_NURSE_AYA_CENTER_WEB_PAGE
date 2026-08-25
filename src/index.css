@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-teal: #0F4C5C;
+  --color-deep-teal: #092F38;
+  --color-secondary-teal: #176B78;
+  --color-light-bg: #EAF4F1;
+  --color-card-bg: #F5FAF8;
+  --color-dark-text: #0E2A32;
+  --color-muted-text: #4F6D74;
+  --color-gold-accent: #D79B3D;
+  --color-gold-light: #F5C77E;
+  --color-soft-accent: #DCEEE8;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #20BA56;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    background-color: #EAF4F1;
+    color: #0E2A32;
+    overflow-x: hidden;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(23, 107, 120, 0.07) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(215, 155, 61, 0.06) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(15, 76, 92, 0.04) 0px, transparent 60%);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #EAF4F1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #176B78;
+    border-radius: 5px;
+    border: 2px solid #EAF4F1;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0F4C5C;
+  }
+}
+
+/* Glassmorphic and backdrop utilities */
+.glass-header {
+  background: rgba(234, 244, 241, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glass-card-tinted {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(235, 247, 243, 0.88) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(23, 107, 120, 0.14);
+}
+
+.glass-card-tinted-hover {
+  transition: all 0.3s ease;
+}
+.glass-card-tinted-hover:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(228, 243, 238, 0.95) 100%);
+  border-color: rgba(23, 107, 120, 0.3);
+  box-shadow: 0 14px 35px -8px rgba(15, 76, 92, 0.12), 0 4px 12px -2px rgba(15, 76, 92, 0.05);
+}
+
+.text-gradient-teal {
+  background: linear-gradient(135deg, #092F38 0%, #0F4C5C 50%, #176B78 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #C78B30 0%, #D79B3D 50%, #F5C77E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Luxury ambient background classes */
+.bg-ambient-sage {
+  background: linear-gradient(180deg, #EAF4F1 0%, #DFEEE9 50%, #E7F3EF 100%);
+}
+
+.bg-ambient-sand {
+  background: linear-gradient(180deg, #E7F3EF 0%, #EDF7F4 50%, #DFEEE9 100%);
+}
+
+.bg-ambient-deep {
+  background: linear-gradient(145deg, #092F38 0%, #0F4C5C 50%, #135A69 100%);
+}
+
+/* ========================================================
+   SNAKE BORDER HOVER ANIMATION FOR CARDS & BOXES
+   ======================================================== */
+@keyframes snakeSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.snake-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.snake-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 240deg,
+    #D79B3D 290deg,
+    #F5C77E 330deg,
+    #176B78 355deg,
+    transparent 360deg
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  animation: snakeSpin 3.5s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.snake-card:hover::before {
+  opacity: 1;
+}
+
+.snake-card::after {
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(235, 247, 243, 0.92) 100%);
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.snake-card > *:not(.absolute) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Dark variant of snake card for deep teal / night boxes */
+.snake-card-dark {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.snake-card-dark::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 240deg,
+    #F5C77E 290deg,
+    #D79B3D 330deg,
+    #25D366 355deg,
+    transparent 360deg
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  animation: snakeSpin 3.5s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.snake-card-dark:hover::before {
+  opacity: 1;
+}
+
+.snake-card-dark::after {
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  background: linear-gradient(145deg, #092F38 0%, #0F4C5C 100%);
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.snake-card-dark > *:not(.absolute) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Pulse animation for floating WhatsApp */
+@keyframes softPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-pulse {
+  animation: softPulse 2.5s infinite;
+}
