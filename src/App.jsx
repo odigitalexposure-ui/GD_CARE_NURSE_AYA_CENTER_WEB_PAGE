@@ -8,6 +8,7 @@ import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/common/FloatingWhatsApp';
+import FloatingCall from './components/common/FloatingCall';
 import BackToTop from './components/common/BackToTop';
 import MobileActionBar from './components/common/MobileActionBar';
 
@@ -46,6 +47,7 @@ function App() {
 
       {/* Floating Action Controls & Mobile Sticky Contact Bar */}
       <FloatingWhatsApp />
+      <FloatingCall />
       <BackToTop />
       <MobileActionBar />
     </div>
