@@ -11,7 +11,7 @@ export const FloatingWhatsApp = () => {
   const whatsappUrl = `${businessInfo.contact.whatsappHref}?text=${defaultMessage}`;
 
   return (
-    <div className="fixed bottom-18 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center flex-row-reverse gap-3">
+    <div className="hidden sm:flex fixed sm:bottom-6 sm:right-6 z-40 items-center flex-row-reverse gap-3">
       {/* Pulse & Button */}
       <motion.a
         href={whatsappUrl}

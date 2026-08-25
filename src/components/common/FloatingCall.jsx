@@ -9,7 +9,7 @@ export const FloatingCall = () => {
   const callHref = businessInfo.contact.callHref;
 
   return (
-    <div className="fixed bottom-32 right-4 sm:bottom-22 sm:right-6 z-40 flex items-center flex-row-reverse gap-3">
+    <div className="hidden sm:flex fixed sm:bottom-22 sm:right-6 z-40 items-center flex-row-reverse gap-3">
       {/* Pulse & Direct Call Button */}
       <motion.a
         href={callHref}
