@@ -1,6 +1,6 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
+import About from"./components/About";
 import Services from './components/Services';
 import AreasWeServe from './components/AreasWeServe';
 import WhyChooseUs from './components/WhyChooseUs';
