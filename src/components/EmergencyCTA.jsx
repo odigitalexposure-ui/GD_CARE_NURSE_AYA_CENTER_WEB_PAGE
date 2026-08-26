@@ -22,20 +22,28 @@ export const EmergencyCTA = () => {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full lg:w-auto">
+        <div className="flex flex-col sm:flex-row flex-wrap items-center gap-2.5 shrink-0 w-full lg:w-auto">
           <a
             href={businessInfo.contact.callHref}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white text-[#0F4C5C] font-bold text-sm hover:bg-[#DCEEE8] shadow-md transition-all active:scale-95"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white text-[#0F4C5C] font-bold text-xs sm:text-sm hover:bg-[#DCEEE8] shadow-md transition-all active:scale-95"
           >
             <Phone className="w-4 h-4 text-[#D79B3D]" />
-            <span>Call Now</span>
+            <span>Call: +91 91630 87355</span>
+          </a>
+
+          <a
+            href={businessInfo.contact.secondaryCallHref}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white text-[#0F4C5C] font-bold text-xs sm:text-sm hover:bg-[#DCEEE8] shadow-md transition-all active:scale-95"
+          >
+            <Phone className="w-4 h-4 text-[#D79B3D]" />
+            <span>Call: +91 84780 95846</span>
           </a>
 
           <a
             href={`${businessInfo.contact.whatsappHref}?text=${defaultWhatsappMessage}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#25D366] to-[#20BA56] hover:brightness-105 text-white font-bold text-sm shadow-md shadow-green-950/20 transition-all active:scale-95"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-gradient-to-r from-[#25D366] to-[#20BA56] hover:brightness-105 text-white font-bold text-xs sm:text-sm shadow-md shadow-green-950/20 transition-all active:scale-95"
           >
             <MessageSquare className="w-4 h-4 fill-white" />
             <span>WhatsApp Us</span>

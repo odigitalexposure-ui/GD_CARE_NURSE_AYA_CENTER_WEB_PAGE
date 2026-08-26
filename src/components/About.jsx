@@ -145,21 +145,28 @@ export const About = () => {
             </div>
 
             {/* CTA buttons */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            <div className="pt-4 flex flex-wrap items-center gap-3">
               <a
                 href={`${businessInfo.contact.whatsappHref}?text=${defaultWhatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl bg-gradient-to-r from-[#0F4C5C] to-[#176B78] text-white font-extrabold text-sm hover:brightness-110 shadow-lg shadow-teal-950/15 transition-all duration-200 active:scale-95"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#0F4C5C] to-[#176B78] text-white font-extrabold text-xs sm:text-sm hover:brightness-110 shadow-lg shadow-teal-950/15 transition-all duration-200 active:scale-95"
               >
                 <MessageSquare className="w-4 h-4 text-[#25D366] fill-[#25D366]" />
-                <span>Talk to Our Care Team</span>
+                <span>WhatsApp Care Team</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
               <a
                 href={businessInfo.contact.callHref}
-                className="inline-flex items-center gap-2 px-6 py-4 rounded-xl border-2 border-[#0F4C5C]/30 text-[#0F4C5C] font-extrabold text-sm bg-white/80 hover:bg-[#DCEEE8] transition-all duration-200"
+                className="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-xl border-2 border-[#0F4C5C]/30 text-[#0F4C5C] font-extrabold text-xs sm:text-sm bg-white/80 hover:bg-[#DCEEE8] transition-all duration-200"
+              >
+                <span>Call: +91 91630 87355</span>
+              </a>
+
+              <a
+                href={businessInfo.contact.secondaryCallHref}
+                className="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-xl border-2 border-[#0F4C5C]/30 text-[#0F4C5C] font-extrabold text-xs sm:text-sm bg-white/80 hover:bg-[#DCEEE8] transition-all duration-200"
               >
                 <span>Call: +91 84780 95846</span>
               </a>

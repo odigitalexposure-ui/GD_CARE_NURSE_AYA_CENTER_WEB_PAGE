@@ -14,10 +14,42 @@ export const businessInfo = {
     fullFormatted: 'SONARPUR DAKSHIN GHOSH PARA, Landmark: ANANDA ASRAM CLUB, South 24 Parganas, Kolkata, West Bengal - 700150'
   },
   contact: {
-    phone: '+91 84780 95846',
-    phoneRaw: '918478095846',
-    callHref: 'tel:+918478095846',
-    whatsappHref: 'https://wa.me/918478095846',
+    // Primary Contact Line (Option 1: Calling & WhatsApp)
+    phone: '+91 91630 87355',
+    phoneRaw: '9163087355',
+    callHref: 'tel:+919163087355',
+    whatsappHref: 'https://wa.me/9163087355',
+
+    // Secondary Contact Line (Option 2: Calling Purpose Only)
+    secondaryPhone: '+91 84780 95846',
+    secondaryPhoneRaw: '918478095846',
+    secondaryCallHref: 'tel:+918478095846',
+    secondaryWhatsappHref: null,
+
+    // Contact lines list for flexible rendering
+    phones: [
+      {
+        id: 'primary',
+        label: 'Helpline 1 (Call & WhatsApp)',
+        display: '+91 91630 87355',
+        raw: '9163087355',
+        callHref: 'tel:+919163087355',
+        whatsappHref: 'https://wa.me/9163087355',
+        hasWhatsapp: true,
+        isPrimary: true
+      },
+      {
+        id: 'secondary',
+        label: 'Helpline 2 (Call Only)',
+        display: '+91 84780 95846',
+        raw: '918478095846',
+        callHref: 'tel:+918478095846',
+        whatsappHref: null,
+        hasWhatsapp: false,
+        isPrimary: false
+      }
+    ],
+
     // Note: No email provided by business. Keep null or configurable.
     email: null,
     availability: 'Available for Care Enquiries'

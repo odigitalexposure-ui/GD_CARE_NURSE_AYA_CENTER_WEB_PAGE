@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Phone, Clock, Maximize2, X, ShieldCheck } from 'lucide-react';
+import { MapPin, Phone, MessageSquare, Clock, Maximize2, X, ShieldCheck } from 'lucide-react';
 import SectionHeading from './common/SectionHeading';
 import ContactForm from './ContactForm';
 import MapSection from './MapSection';
@@ -41,21 +41,76 @@ export const Contact = () => {
           </div>
 
           {/* Card 2: Phone */}
-          <div className="snake-card p-7 rounded-3xl border border-[#176B78]/18 shadow-[0_8px_24px_rgba(15,76,92,0.06)] hover:shadow-xl transition-all cursor-pointer">
-            <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-[#DCEEE8] to-[#CDE8E0] text-[#0F4C5C] flex items-center justify-center mb-5 shadow-xs border border-[#176B78]/15">
+          <div className="snake-card p-6 sm:p-7 rounded-3xl border border-[#176B78]/18 shadow-[0_8px_24px_rgba(15,76,92,0.06)] hover:shadow-xl transition-all">
+            <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-[#DCEEE8] to-[#CDE8E0] text-[#0F4C5C] flex items-center justify-center mb-4 shadow-xs border border-[#176B78]/15">
               <Phone className="w-6 h-6 text-[#D79B3D] stroke-[2.2]" />
             </div>
-            <h4 className="text-base font-black text-[#0F4C5C] mb-1.5">
-              Call Helpline
+            <h4 className="text-base font-black text-[#0F4C5C] mb-1">
+              Call Helplines
             </h4>
-            <a
-              href={businessInfo.contact.callHref}
-              className="text-lg sm:text-xl font-black text-[#0F4C5C] hover:text-[#176B78] transition-colors block"
-            >
-              +91 84780 95846
-            </a>
-            <p className="text-xs text-[#4F6D74] mt-1.5 font-medium">
-              Tap to call directly from your device
+            <div className="space-y-2.5 mt-2">
+              {/* Option 1: First place - Call & WhatsApp */}
+              <div className="flex items-center justify-between gap-2 p-3 rounded-2xl bg-[#DCEEE8]/70 border border-[#176B78]/15">
+                <div>
+                  <span className="text-[10px] font-black text-[#0F4C5C] uppercase tracking-wider block">
+                    Helpline 1 (Call & WhatsApp)
+                  </span>
+                  <a
+                    href={businessInfo.contact.callHref}
+                    className="text-base font-black text-[#0F4C5C] hover:text-[#176B78] transition-colors"
+                  >
+                    +91 91630 87355
+                  </a>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <a
+                    href={businessInfo.contact.callHref}
+                    className="p-2 rounded-xl bg-[#0F4C5C] text-white hover:bg-[#176B78] transition-colors"
+                    title="Call Helpline 1 (+91 91630 87355)"
+                    aria-label="Call Helpline 1"
+                  >
+                    <Phone className="w-4 h-4 text-[#F5C77E]" />
+                  </a>
+                  <a
+                    href={businessInfo.contact.whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-xl bg-[#25D366] text-white hover:bg-[#20BA56] transition-colors"
+                    title="WhatsApp Helpline 1 (+91 91630 87355)"
+                    aria-label="WhatsApp Helpline 1"
+                  >
+                    <MessageSquare className="w-4 h-4 fill-white" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Option 2: Second place - Call Purpose Only */}
+              <div className="flex items-center justify-between gap-2 p-3 rounded-2xl bg-[#DCEEE8]/40 border border-[#176B78]/10">
+                <div>
+                  <span className="text-[10px] font-bold text-[#4F6D74] uppercase tracking-wider block">
+                    Helpline 2 (Call Only)
+                  </span>
+                  <a
+                    href={businessInfo.contact.secondaryCallHref}
+                    className="text-base font-black text-[#0F4C5C] hover:text-[#176B78] transition-colors"
+                  >
+                    +91 84780 95846
+                  </a>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <a
+                    href={businessInfo.contact.secondaryCallHref}
+                    className="p-2 rounded-xl bg-[#0F4C5C] text-white hover:bg-[#176B78] transition-colors"
+                    title="Call Helpline 2 (+91 84780 95846)"
+                    aria-label="Call Helpline 2"
+                  >
+                    <Phone className="w-4 h-4 text-[#F5C77E]" />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <p className="text-[11px] text-[#4F6D74] mt-2.5 font-medium">
+              Tap icons to call directly or connect on WhatsApp
             </p>
           </div>
 

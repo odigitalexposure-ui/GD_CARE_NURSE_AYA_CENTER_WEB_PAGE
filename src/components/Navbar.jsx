@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, MessageSquare } from 'lucide-react';
+import { Menu, X, Phone, MessageSquare, ChevronDown } from 'lucide-react';
 import Logo from './common/Logo';
 import { businessInfo } from '../data/businessInfo';
 
@@ -17,6 +17,8 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [callDropdownOpen, setCallDropdownOpen] = useState(false);
+  const [whatsappDropdownOpen, setWhatsappDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -112,19 +114,64 @@ export const Navbar = () => {
 
           {/* Desktop Call & WhatsApp Actions */}
           <div className="hidden lg:flex items-center gap-3">
-            <a
-              href={businessInfo.contact.callHref}
-              className={`flex items-center gap-2 text-xs xl:text-sm font-extrabold px-4 py-2 rounded-xl transition-all duration-200 border ${
-                isScrolled
-                  ? 'text-[#0F4C5C] border-[#0F4C5C]/25 hover:bg-[#DCEEE8]/80 shadow-xs'
-                  : 'text-white border-white/30 hover:bg-white/15 backdrop-blur-sm'
-              }`}
-              aria-label="Call GD Care Centre"
+            {/* Helpline Call Button with Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setCallDropdownOpen(true)}
+              onMouseLeave={() => setCallDropdownOpen(false)}
             >
-              <Phone className="w-4 h-4 text-[#D79B3D]" />
-              <span>+91 84780 95846</span>
-            </a>
+              <button
+                type="button"
+                onClick={() => setCallDropdownOpen(!callDropdownOpen)}
+                className={`flex items-center gap-2 text-xs xl:text-sm font-extrabold px-3.5 py-2 rounded-xl transition-all duration-200 border cursor-pointer ${
+                  isScrolled
+                    ? 'text-[#0F4C5C] border-[#0F4C5C]/25 hover:bg-[#DCEEE8]/80 shadow-xs'
+                    : 'text-white border-white/30 hover:bg-white/15 backdrop-blur-sm'
+                }`}
+                aria-label="Call GD Care Helplines"
+              >
+                <Phone className="w-4 h-4 text-[#D79B3D]" />
+                <span>Call Helpline</span>
+                <ChevronDown className="w-3.5 h-3.5 opacity-70" />
+              </button>
 
+              {/* Call Dropdown Menu */}
+              <AnimatePresence>
+                {callDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full right-0 mt-2 w-60 bg-[#092F38] text-white rounded-2xl shadow-2xl border border-[#D79B3D]/40 p-2.5 z-50 backdrop-blur-md"
+                  >
+                    <div className="text-[10px] font-black uppercase tracking-wider text-[#F5C77E] px-2 py-1 flex items-center justify-between">
+                      <span>Direct Calling</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-ping" />
+                    </div>
+                    <div className="flex flex-col gap-1 mt-1">
+                      {businessInfo.contact.phones.map((p) => (
+                        <a
+                          key={p.id}
+                          href={p.callHref}
+                          className="flex items-center justify-between p-2 rounded-xl hover:bg-white/10 text-xs font-bold transition-colors group"
+                        >
+                          <div className="flex flex-col text-left">
+                            <span className="text-[10px] text-teal-200/70">{p.label}</span>
+                            <span className="text-white group-hover:text-[#F5C77E] font-extrabold">{p.display}</span>
+                          </div>
+                          <span className="text-[10px] px-2 py-1 rounded-lg bg-[#D79B3D] text-[#092F38] font-black uppercase">
+                            Call
+                          </span>
+                        </a>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* WhatsApp Direct Action Button (Dedicated WhatsApp: 9163087355) */}
             <a
               href={`${businessInfo.contact.whatsappHref}?text=${defaultWhatsappMessage}`}
               target="_blank"
@@ -198,24 +245,37 @@ export const Navbar = () => {
               </nav>
 
               <div className="mt-6 pt-6 border-t border-[#176B78]/20 flex flex-col gap-3">
-                <a
-                  href={businessInfo.contact.callHref}
-                  onClick={handleLinkClick}
-                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border-2 border-[#0F4C5C] text-[#0F4C5C] font-extrabold text-sm bg-white/60"
-                >
-                  <Phone className="w-4 h-4 text-[#D79B3D]" />
-                  <span>Call: +91 84780 95846</span>
-                </a>
+                <span className="text-[11px] font-black uppercase tracking-wider text-[#0F4C5C] px-1">
+                  Helpline Calling Lines
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <a
+                    href={businessInfo.contact.callHref}
+                    onClick={handleLinkClick}
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border-2 border-[#0F4C5C] text-[#0F4C5C] font-extrabold text-xs bg-white/60"
+                  >
+                    <Phone className="w-4 h-4 text-[#D79B3D]" />
+                    <span>Line 1: +91 91630 87355</span>
+                  </a>
+                  <a
+                    href={businessInfo.contact.secondaryCallHref}
+                    onClick={handleLinkClick}
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border-2 border-[#0F4C5C] text-[#0F4C5C] font-extrabold text-xs bg-white/60"
+                  >
+                    <Phone className="w-4 h-4 text-[#D79B3D]" />
+                    <span>Line 2 (Call Only): +91 84780 95846</span>
+                  </a>
+                </div>
 
                 <a
                   href={`${businessInfo.contact.whatsappHref}?text=${defaultWhatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleLinkClick}
-                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-[#25D366] to-[#20BA56] text-white font-extrabold text-sm shadow-md"
+                  className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-[#25D366] to-[#20BA56] text-white font-extrabold text-xs shadow-md"
                 >
                   <MessageSquare className="w-4 h-4 fill-white" />
-                  <span>Chat on WhatsApp</span>
+                  <span>Chat on WhatsApp (+91 91630 87355)</span>
                 </a>
 
                 <p className="text-xs text-center text-[#4F6D74] mt-2 font-medium">

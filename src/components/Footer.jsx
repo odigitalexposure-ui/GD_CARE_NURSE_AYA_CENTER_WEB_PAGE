@@ -71,26 +71,48 @@ export const Footer = () => {
                 </span>
               </div>
 
-              <div className="flex items-center gap-2.5 pt-1">
-                <Phone className="w-4 h-4 text-[#F5C77E] shrink-0" />
-                <a
-                  href={businessInfo.contact.callHref}
-                  className="font-black text-white hover:text-[#F5C77E] transition-colors text-base"
-                >
-                  +91 84780 95846
-                </a>
+              <div className="space-y-2 pt-1">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2.5">
+                    <Phone className="w-4 h-4 text-[#F5C77E] shrink-0" />
+                    <a
+                      href={businessInfo.contact.callHref}
+                      className="font-black text-white hover:text-[#F5C77E] transition-colors text-sm sm:text-base"
+                    >
+                      +91 91630 87355
+                    </a>
+                  </div>
+                  <span className="text-[10px] uppercase font-extrabold px-2 py-0.5 rounded bg-white/10 text-teal-200">
+                    Line 1 (Call & WA)
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2.5">
+                    <Phone className="w-4 h-4 text-[#F5C77E] shrink-0" />
+                    <a
+                      href={businessInfo.contact.secondaryCallHref}
+                      className="font-black text-white hover:text-[#F5C77E] transition-colors text-sm sm:text-base"
+                    >
+                      +91 84780 95846
+                    </a>
+                  </div>
+                  <span className="text-[10px] uppercase font-extrabold px-2 py-0.5 rounded bg-white/10 text-teal-200">
+                    Line 2 (Call Only)
+                  </span>
+                </div>
               </div>
             </div>
 
-            <div className="pt-3 flex flex-col gap-2.5">
+            <div className="pt-3">
               <a
                 href={`${businessInfo.contact.whatsappHref}?text=${defaultWhatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-[#25D366] to-[#20BA56] hover:brightness-105 text-white font-extrabold text-xs sm:text-sm shadow-md transition-all active:scale-95"
+                className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#25D366] to-[#20BA56] hover:brightness-105 text-white font-extrabold text-xs sm:text-sm shadow-md transition-all active:scale-95 text-center"
               >
                 <MessageSquare className="w-4 h-4 fill-white" />
-                <span>Get Care Assistance on WhatsApp</span>
+                <span>Chat on WhatsApp (+91 91630 87355)</span>
               </a>
             </div>
           </div>

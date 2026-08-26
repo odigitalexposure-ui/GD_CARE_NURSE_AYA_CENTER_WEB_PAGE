@@ -44,23 +44,32 @@ export const Services = () => {
               </p>
             </div>
 
-            <div className="mt-7 pt-5 border-t border-white/15 flex flex-col gap-2.5 relative z-10">
+            <div className="mt-7 pt-5 border-t border-white/15 flex flex-col gap-2 relative z-10">
               <a
                 href={businessInfo.contact.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-[#25D366] to-[#20BA56] hover:brightness-105 text-white font-extrabold text-xs shadow-md transition-all active:scale-95"
+                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-gradient-to-r from-[#25D366] to-[#20BA56] hover:brightness-105 text-white font-extrabold text-xs shadow-md transition-all active:scale-95"
               >
                 <MessageCircle className="w-4 h-4 fill-white" />
                 <span>Chat with Care Coordinator</span>
               </a>
-              <a
-                href={businessInfo.contact.callHref}
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-extrabold text-xs transition-colors border border-white/20"
-              >
-                <Phone className="w-3.5 h-3.5 text-[#F5C77E]" />
-                <span>Call Helpline: +91 84780 95846</span>
-              </a>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <a
+                  href={businessInfo.contact.callHref}
+                  className="flex items-center justify-center gap-1.5 w-full py-2.5 px-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-extrabold text-[11px] transition-colors border border-white/20 text-center"
+                >
+                  <Phone className="w-3 h-3 text-[#F5C77E]" />
+                  <span>Call: +91 91630 87355</span>
+                </a>
+                <a
+                  href={businessInfo.contact.secondaryCallHref}
+                  className="flex items-center justify-center gap-1.5 w-full py-2.5 px-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-extrabold text-[11px] transition-colors border border-white/20 text-center"
+                >
+                  <Phone className="w-3 h-3 text-[#F5C77E]" />
+                  <span>Call: +91 84780 95846</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

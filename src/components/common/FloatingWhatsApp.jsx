@@ -12,12 +12,12 @@ export const FloatingWhatsApp = () => {
 
   return (
     <div className="hidden sm:flex fixed sm:bottom-6 sm:right-6 z-40 items-center flex-row-reverse gap-3">
-      {/* Pulse & Button */}
+      {/* Pulse & Direct WhatsApp Button */}
       <motion.a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat with GD Care on WhatsApp"
+        aria-label={`Chat with GD Care on WhatsApp at ${businessInfo.contact.phone}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         whileHover={{ scale: 1.1 }}
@@ -43,9 +43,9 @@ export const FloatingWhatsApp = () => {
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 10, scale: 0.95 }}
             transition={{ duration: 0.15 }}
-            className="hidden sm:flex items-center gap-2 bg-[#17323A] text-white text-xs font-semibold px-3 py-2 rounded-lg shadow-lg whitespace-nowrap"
+            className="hidden sm:flex items-center gap-2 bg-[#17323A] text-white text-xs font-semibold px-3.5 py-2 rounded-xl shadow-lg whitespace-nowrap border border-[#25D366]/40"
           >
-            <span>Chat on WhatsApp</span>
+            <span>WhatsApp: <strong className="text-[#25D366]">{businessInfo.contact.phone}</strong></span>
             <div className="w-2 h-2 bg-[#25D366] rounded-full animate-ping" />
           </motion.div>
         )}
